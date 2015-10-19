@@ -183,7 +183,7 @@ def manage_account(request):
     # org_list = list(Organization.objects.all())
     org_list = list(Organization.objects.filter(owner=user))
     app_list = list(OrgApplication.objects.filter(user=user))
-    context = {"APPLICATION_TITLE": application_title,
+    context = {"title": "Manage Account",
                "user": user,
                "mfa_address": mfa_address,
                "organizations": org_list,
@@ -214,7 +214,7 @@ def connect_organization(request):
     user = request.user
     application_title = settings.APPLICATION_TITLE
 
-    context = {"APPLICATION_TITLE": application_title,
+    context = {"title": "My Organization",
                "user": user}
 
     DEBUG = settings.DEBUG_SETTINGS

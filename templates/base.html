@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load i18n %}
 <html lang="en">
  <head>
         <title>
         {% block pretitle %}{%  endblock %}
-        {% block title %} {{ APPLICATION_TITLE }} {% endblock %}
+        {% block title %} {{ settings.APPLICATION_TITLE }} {% endblock %}
         </title>
 	
     {% block head %}
@@ -22,6 +23,7 @@
             We apologize for the inconvenience. <a href="mailto:support@bbonfhir.com">Contact us</a> with any questions.
         </div>{% endcomment %}
 
+
          <div id="messages">
       {% if messages %}
         {% for message in messages %}
@@ -32,7 +34,14 @@
         {% endfor %}
       {% endif %}
     </div>
-       
+ {% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        {% block crumbs %}
+            {% if title %} &rsaquo; {{ title }}{% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}
         <div class="container">
       <h2>{% block pagename %}{% endblock %}</h2>
       {% block content %}

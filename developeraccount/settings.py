@@ -343,6 +343,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 CRISPY_FAIL_SILENTLY = not DEBUG
 
+# Bootstrap admin
+DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
+
 # Django Debug Toolbar
 INTERNAL_IPS = '127.0.0.1,50.153.126.133'
 #SHOW_TOOLBAR_CALLBACK = 'developeraccount.debug'
@@ -372,6 +375,7 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 SETTINGS_EXPORT = [
     'DEBUG',
     'APPLICATION_TITLE',
+    'EMAIL_HOST_USER',
 ]
 
 
